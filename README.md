@@ -5,7 +5,7 @@ Plugin for [YOURLS](http://yourls.org).
 
 Description
 -----------
-This plugin lets you hide (all but the last) referrer (HTTP referer header) when redirecting. This can be useful for security and integrity reasons, for example to avoid sending sensitive querystrings to an external site. Note that on some browsers, the *last* referrer  will always be sent (see table), which will be the YOURLS short url.
+This plugin lets you hide (all but the last) referrer (HTTP referer header) when redirecting. This can be useful for security and integrity reasons, for example to avoid sending sensitive querystrings to an external site. Note that on some browsers when using https, the *last* referrer  will always be sent, which will be the YOURLS short url. Using HTTPS on all redirects ensures a  hidden referrer on all browsers tested.
 
 The plugin works either by adding a prefix to existing short urls, or on ALL redirects (default).
 
@@ -15,8 +15,10 @@ What will be hidden
 Browser | Hides referrer
 --- | --- 
 Chrome | All
-Firefox | All but last
-IE | All but last
+Firefox http | All but last
+Firefox https | All
+IE http | All but last
+IE https | All
 
 (As of May 2015)
 
